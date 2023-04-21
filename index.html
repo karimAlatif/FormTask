@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up | Robusta</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="homeDiv" class="homeDiv">
+      <h1>Home Page </h1>
+      <h1 id="userNameID">Hello, userName </h1>
+    </div>
+    <div id="formDiv">
+      <div class="form-container">
+        <form id="login-form" class="tabcontent active" onsubmit="submitForm(event, this)">
+          <h1>Welcome Back </h1>
+          <a>Please Enter your details </a>
+
+          <h2>Sign In</h2>
+          <div class="form-group">
+            <input type="email" id="email" name="email" class="form-input" required>
+            <label for="username">Email</label>
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" class="form-input" autocomplete="on" required>
+            <label for="password">Password</label>
+          </div>
+          <div class="loadingWrapper">
+            <div class="loading"><i class="fa fa-spinner fa-spin"></i></div>
+          </div>
+          <button type="submit" class="form-submit">Sign In</button>
+          <button class="form-toggle" onclick="openTab(event, 'signup-form')">Don't have an account ?</button>
+
+        </form>
+
+        <form id="signup-form" class="tabcontent" onsubmit="submitForm(event, this)">
+          <h1>Let's Join !</h1>
+          <a>Please Enter your details </a>
+
+          <h2>Sign Up</h2>
+          <div class="form-group">
+            <input type="text" id="name" name="name" class="form-input" oninput="validateName(this)" minlength="3"
+              maxlength="32" required>
+            <label for="name">Full Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="s_email" name="email" class="form-input" required>
+            <label for="email">Email</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="s_username" name="username" class="form-input" oninput="validateUserName(this)"
+              minlength="3" maxlength="32" pattern="^[a-zA-Z0-9]*$" required>
+            <label for="username">Username</label>
+          </div>
+          <div class="form-group">
+            <input type="password" id="s_password" name="password" class="form-input" oninput="validatePassword(this)"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" autocomplete="on" required>
+            <label for="password">Password</label>
+            <a class="caption ">Password can contains
+              Digits,
+              One lowercase letter,
+              One uppercase letter,
+              One special character and
+              minimum length of 8 characters</a>
+          </div>
+          <div class="loadingWrapper">
+            <div class="loading"><i class="fa fa-spinner fa-spin"></i></div>
+          </div>
+          <button type="submit" class="form-submit">Sign Up</button>
+          <button class="form-toggle" onclick="openTab(event, 'login-form')">already have an acount ?</button>
+        </form>
+      </div>
+    </div>
+    <div class="svgWrapper">
+      <img class="image-container" src="./undraw_login_re_4vu2.svg">
+    </div>
+  </div>
+  <div id="snackbar"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
